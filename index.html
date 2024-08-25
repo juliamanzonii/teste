@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miga</title>
+
+    <style>
+        body{
+            background-color: rgb(251, 149, 255);
+            margin: 0;
+            padding: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .painel{
+            margin: auto;
+            background-color: white;
+            max-width: 90%; /* Responsivo para ajustar em telas menores */
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            text-align: center;
+            padding: 50px 20px; /* Aumentei o padding lateral para dar mais espaço */
+            box-sizing: border-box; /* Para o padding não aumentar o tamanho total */
+        }
+
+        .painel > img{
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        #sim, #nao {
+            height: 40px;
+            width: 60px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        #sim {
+            margin-right: 20px;
+        }
+
+        #nao {
+            position: absolute;
+        }
+
+        /* Media Queries para telas menores */
+        @media (max-width: 768px) {
+            .painel {
+                padding: 20px 10px;
+            }
+
+            #sim, #nao {
+                width: 50px;
+                height: 35px;
+            }
+
+            .painel h1 {
+                font-size: 1.5rem;
+            }
+
+            .painel h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #sim, #nao {
+                width: 45px;
+                height: 30px;
+            }
+
+            .painel h1 {
+                font-size: 1.2rem;
+            }
+
+            .painel h2 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="painel">
+        <h1> Para a melhor amiga do &#x1F30E</h1>
+        <h2>Obrigada por ser a melhor amiga do mundo!</h2>
+        <img src="download.gif" alt="Imagem de amizade">
+        
+        <h2>Quer ser minha amiga pra sempre? </h2>
+
+        <a href="https://youtu.be/1LOykb0U2Ms?si=zLj7F9CxGeFXEQzS"><button id="sim" > Sim! </button></a>
+        <button onmouseover="fuja()" id="nao"> Não! </button>
+    </div>
+
+    <script>
+        function fuja(){
+            var botaoNao = document.getElementById("nao")
+
+            var larguraJanela = window.innerWidth;
+            var alturaJanela = window.innerHeight;
+
+            var maxX = larguraJanela - botaoNao.offsetWidth;
+            var maxY = alturaJanela - botaoNao.offsetHeight;
+
+            var aleatorioX = Math.floor(Math.random() * maxX);
+            var aleatorioY = Math.floor(Math.random() * maxY);
+
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+    </script>
+
+</body>
+</html>
